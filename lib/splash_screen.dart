@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_demo/db_functions.dart';
 import 'package:notes_demo/home.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -7,7 +6,6 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await getNotes();
       await Future.delayed(const Duration(seconds: 2), () {
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => const HomeScreen()));

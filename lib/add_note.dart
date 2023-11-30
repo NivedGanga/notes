@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_demo/db_functions.dart';
 import 'package:notes_demo/note_model.dart';
 
 class AddNote extends StatefulWidget {
@@ -66,7 +65,8 @@ class _AddNoteState extends State<AddNote> {
                         title: titleController.text,
                         content: descriptionController.text,
                         date: DateTime.now().millisecondsSinceEpoch);
-                    await addNotes(noteModel);
+                    notesList.value.add(noteModel);
+                    notesList.notifyListeners();
                     Navigator.of(context).pop();
                   },
                 )
